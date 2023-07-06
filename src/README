@@ -1,0 +1,33 @@
+Created by: Amyn Jiwani
+
+Brief Project Status: 
+
+As of the submitted date, all classes for both parts seem to be in working order, as intended. 
+
+--------------------------------------------------------------------------------
+Part 1 (of README): Summary of Accomplishments:
+
+The files worked correctly for the two algorithms in this lab - XMLvalidation and heap (also known as heapSort), and the two algorithms have been implemented with the specifics given in the lab manual. However, there is one slight "quirk" with both sorting algorithms. When inputting tags to sort when running the executable files, there is no direct end to the program. This is because the array which stores the data values has no clear, defined end (although, the only restriction is that there can be no more than 100 elements for each sorting algorithm). Similar to previous labs (i.e. Lab 3), I believe that this is what causes the file to run continuously, without stopping on it's own. However, after looking into this issue on my own, I found out that using the command "Ctrl+D" indicates the End of File (EOF) command, or ends the user input portion of the executable. Doing so will result in both algorithms' expected output - a valid/invalid statement for part 1, and a node representation and sorted set of integers for the second part. 
+
+--------------------------------------------------------------------------------
+
+Part 2 (of README): Analysis of the Sorting Algorithms:
+As explained in the lab manual, the following is my answer to the question specified to be answered:
+
+Question: Another legal XML tag not used in this lab is the "stand-alone" tag. This kind of
+tag combines both a start-tag and end-tag in one. It is identified with a '/'
+(slash) preceding the final >. (For example, the <foo/> is a stand-alone tag
+that is "self balancing".
+
+Describe briefly how you would modify Requirement 1 to allow this kind of tag. 
+
+
+Answer: To modify the algorithm to handle stand-alone tags, the following steps can be taken: After reading the tag's identity, check if the next character is a '/' (slash). If it is, the tag is a stand-alone tag, and there's no need to push it onto the Stack or check for a matching end-tag. If the tag is not a stand-alone tag, we can continue with the original algorithm.
+
+The following is a modified version of the algorithm; which accounts for the above changes. This updated algorithm will correctly handle stand-alone tags while maintaining the original functionality for start and end-tags:
+
+1. Read the input until the beginning of a tag is detected. (i.e., tags begin with '<': if the next character is a '/' (slash), then it is an end-tag; otherwise, it is a start-tag).
+2. Read the tag's identity. (e.g., both tags <x> and </x> have the same identity: 'x').
+3. Check if the next character is a '/' (slash). If it is, this is a stand-alone tag, and you don't need to push it onto the Stack or check for a matching end-tag. Skip to Step 7.
+The rest of the steps should be the same as the original algorithm...
+
